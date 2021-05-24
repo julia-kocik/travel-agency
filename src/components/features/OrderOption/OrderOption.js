@@ -1,22 +1,37 @@
 import React from 'react';
-import {Grid, Row, Col} from 'react-flexbox-grid';
 import styles from './OrderOption.scss';
 import PropTypes from 'prop-types';
+import OrderOptionCheckboxes from './OrderOptionCheckboxes';
+import OrderOptionDropdown from './OrderOptionDropdown';
+import OrderOptionIcons from './OrderOptionIcons';
+import OrderOptionNumber from './OrderOptionNumber';
 
-const OrderOptions = (props) => (
-  <Grid>
-    <Row>
-      <Col>
-        <div className={styles.component}>
-          <h3 className={styles.title}>{props.name}</h3>
-        </div>
-      </Col>
-    </Row>
-  </Grid>
-);
+const optionTypes = {
+  dropdown: OrderOptionDropdown,
+  icons: OrderOptionIcons,
+  checkboxes: OrderOptionCheckboxes,
+  number: OrderOptionNumber,
+};
 
-OrderOptions.propTypes = {
+
+const OrderOption = ({name, type, ...otherProps}) => {
+  const OptionComponent = optionTypes[type];
+  if(!OptionComponent){
+    return null;
+  } else {
+    return (
+      <div className={styles.component}>
+        <h3 className={styles.title}>{name}</h3>
+        <OptionComponent
+          {...otherProps}
+        />
+      </div>
+    );
+  }
+};
+
+OrderOption.propTypes = {
   name: PropTypes.string,
 };
 
-export default OrderOptions;
+export default OrderOption;
