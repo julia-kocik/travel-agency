@@ -1,16 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './OrderOption.scss';
 
-
-
-const OrderOptionText = () => (
+const OrderOptionText = ({currentValue, setOptionValue}) => (
   <div>
-    <input 
+    <input className={styles.input}
       type='text'
-      className={styles.inputSmall}
-    /> 
+      value={currentValue}
+      onChange={event => setOptionValue(event.currentTarget.value)}
+      placeholder={'Put your name here'}/>
   </div>
 );
-  
-  
+
+OrderOptionText.propTypes = {
+  setOptionValue: PropTypes.func,
+  currentValue: PropTypes.string,
+};
+
 export default OrderOptionText;
