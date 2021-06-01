@@ -1,6 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import OrderOption from './OrderOption';
+import DatePicker from 'react-datepicker';
 
 describe('Component OrderOption', () => {
   it('should render without crashing', () => {
@@ -57,7 +58,7 @@ describe('Component OrderOption', () => {
   };
   
   const testValue = mockProps.values[1].id;
-  
+  const testValueNumber = 3;
   
   for(let type in optionTypes){
     describe(`Component OrderOption with type=${type}`, () => {
@@ -106,6 +107,94 @@ describe('Component OrderOption', () => {
             renderedSubcomponent.find('select').simulate('change', {currentTarget: {value: testValue}});
             expect(mockSetOrderOption).toBeCalledTimes(1);
             expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
+          });
+          break;
+        }
+        case 'icons': {
+          it('contains div and icon', () => {
+            const div = renderedSubcomponent.find('div');
+            expect(div.length).toBe(4);
+            const emptyOption = div.find('Icon[name="times-circle"]').length;
+            expect(emptyOption).toBe(1);
+            const options = div.find('div Icon').not('[name="times-circle"]');
+            expect(options.length).toBe(mockProps.values.length);
+            expect(options.at(0).prop('name')).toBe(mockProps.values[0].icon);
+            expect(options.at(1).prop('name')).toBe(mockProps.values[1].icon);
+          });
+          it('should run setOrderOption function on click', () => {
+            renderedSubcomponent.find('div div:last-child').simulate('click');
+            expect(mockSetOrderOption).toBeCalledTimes(1);
+            expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
+          });
+          break;
+        }
+        case 'number': {
+          /* tests for number */
+          it('find div and input', () => {
+            const div = renderedSubcomponent.find('div');
+            expect(div.length).toBe(1);
+          
+            const inputs = div.find('input');
+            expect(inputs.length).toBe(1);
+          
+            expect(inputs.at(0).prop('type')).toBe('number');
+            
+          });
+          it('should run setOrderOption function on change', () => {
+            renderedSubcomponent.find('input').simulate('change', {currentTarget: {value: testValueNumber}});
+            expect(mockSetOrderOption).toBeCalledTimes(1);
+            expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValueNumber });
+          });
+          break;
+        }
+        case 'text': {
+          /* tests for text */
+          it('find div and input', () => {
+            const div = renderedSubcomponent.find('div');
+            expect(div.length).toBe(1);
+          
+            const inputs = div.find('input');
+            expect(inputs.length).toBe(1);
+          
+            expect(inputs.at(0).prop('type')).toBe('text');
+            
+          });
+          it('should run setOrderOption function on change', () => {
+            renderedSubcomponent.find('input').simulate('change', {currentTarget: {value: testValue}});
+            expect(mockSetOrderOption).toBeCalledTimes(1);
+            expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
+          });
+          break;
+        }
+        case 'datepicker': {
+          //test for datepicker
+          it('tests for date', () => {
+            const datePicker = renderedSubcomponent.find(DatePicker);
+            expect(datePicker.length).toBe(1);
+          });
+          it('should run setOrderOption function on change', () => {
+            renderedSubcomponent.find(DatePicker).simulate('change', testValue);
+            expect(mockSetOrderOption).toBeCalledTimes(1);
+            expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
+          });
+          break;
+        }
+        case 'checkboxes': {
+          /* tests for checkboxes */
+          it('contains div and input', () => {
+            const div = renderedSubcomponent.find('div');
+            expect(div.length).toBe(1);
+            const inputs = div.find('input');
+            expect(inputs.length).toBe(mockProps.values.length);
+            expect(inputs.at(0).prop('type')).toBe('checkbox');
+            expect(inputs.at(1).prop('type')).toBe('checkbox');
+            expect(inputs.at(0).prop('value')).toBe(mockProps.values[0].id);
+            expect(inputs.at(1).prop('value')).toBe(mockProps.values[1].id);
+          });
+          it('should run setOrderOption function on change', () => {
+            renderedSubcomponent.find(`input[value='${testValue}']`).simulate('change', {currentTarget: {checked: true}});
+            expect(mockSetOrderOption).toBeCalledTimes(1);
+            expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: [mockProps.currentValue, testValue] });
           });
           break;
         }
