@@ -8,7 +8,9 @@ const OrderOptionText = ({currentValue, setOptionValue}) => (
       type='text'
       value={currentValue}
       onChange={event => setOptionValue(event.currentTarget.value)}
-      placeholder={'Put your name here'}/>
+      placeholder={'Put your name here'}
+      required  
+    />
   </div>
 );
 
