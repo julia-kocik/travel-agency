@@ -4,7 +4,7 @@ import HappyHourAd from './HappyHourAd';
 
 const select = {
   title: '.title',
-  promoDecription: '.promoDescription',
+  promoDescription: '.promoDescription',
 };
 
 const mockProps = {
@@ -21,7 +21,7 @@ describe('Component HappyHourAd', () => {
   it('should be h3 with class .title && div with class .countdown', () => {
     const component = shallow(<HappyHourAd />);
     expect(component.exists(select.title)).toEqual(true);
-    expect(component.exists(select.promoDecription)).toEqual(true);
+    expect(component.exists(select.promoDescription)).toEqual(true);
   });
 
   it('should return props title in the title', () => {

@@ -20,7 +20,7 @@ class HappyHourAd extends React.Component {
     return (
       <div className="countdown">
         <h3 className="title">{title}</h3>
-        <div className='promoDescription'>{this.getCountdownTime()}</div>
+        <div className="promoDescription">{this.getCountdownTime()}</div>
       </div>
     );
   }
