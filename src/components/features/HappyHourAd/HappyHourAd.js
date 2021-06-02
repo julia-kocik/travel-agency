@@ -2,8 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class HappyHourAd extends React.Component {
+  constructor(){
+    super();
+  
+    /* run this.forceUpdate() every second */
+    setInterval(() => this.forceUpdate(), 1000);
+  }
   static propTypes = {
     title: PropTypes.string,
+    promoDescription: PropTypes.string,
+    promotionText: PropTypes.string,
   }
   getCountdownTime() {
     const currentTime = new Date();
@@ -16,14 +24,23 @@ class HappyHourAd extends React.Component {
     return Math.round((nextNoon.getTime() - currentTime.getTime())/1000);
   }
   render() {
-    const {title} = this.props;
+    const {title, promotionText} = this.props;
+    const validateTime = this.getCountdownTime();
+    
     return (
       <div className="countdown">
         <h3 className="title">{title}</h3>
-        <div className="promoDescription">{this.getCountdownTime()}</div>
+        <div className="promoDescription">{validateTime <= 82800 && validateTime >= 1
+          ? validateTime
+          : promotionText}
+        </div>
       </div>
     );
   }
 }
+
+HappyHourAd.defaultProps = {
+  promotionText: '20% discount!',
+};
 
 export default HappyHourAd;
