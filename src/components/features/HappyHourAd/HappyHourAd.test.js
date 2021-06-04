@@ -23,11 +23,6 @@ describe('Component HappyHourAd', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should be h3 with class .title && div with class .countdown', () => {
-    const component = shallow(<HappyHourAd />);
-    expect(component.exists(select.title)).toEqual(true);
-    expect(component.exists(select.promoDescription)).toEqual(true);
-  });
 
   it('should return props title in the title', () => {
     const component = shallow(<HappyHourAd title={mockProps.title} {...mockProps} />);
