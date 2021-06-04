@@ -3,9 +3,6 @@ import {shallow} from 'enzyme';
 import TripSummary from './TripSummary';
 
 describe('Component Trip Summary', () => {
-  it('should throw error without required props', () => {
-    expect(() => shallow(<TripSummary />)).toThrow();
-  });
 
   const expectedLink = '/trip/abc';
   const expectedImage = 'image.jpg';
@@ -53,6 +50,13 @@ describe('Component Trip Summary', () => {
   });
 
   it('should not render div tags if props tags is false', () => {
+    const component = shallow(<TripSummary 
+      id={tripId}
+      image={expectedImage}
+      name={expectedName} 
+      cost={expectedCost}
+      days={expectedDays}
+    />);
     expect(component.find('.tags').exists()).toBe(false);
   });
 });
