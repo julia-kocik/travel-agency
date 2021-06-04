@@ -12,13 +12,16 @@ import {calculateTotal} from '../../../utils/calculateTotal';
 const sendOrder = (options, tripCost, tripDetails) => {
   
   const totalCost = formatPrice(calculateTotal(tripCost, options));
-
+  if(!options.name || !options.contact) {
+    alert('Name or contact field is empty');
+    return false;
+  }
   const payload = {
     ...options,
     totalCost,
     ...tripDetails,
   };
-
+  
   const url = settings.db.url + '/' + settings.db.endpoint.orders;
 
   const fetchOptions = {

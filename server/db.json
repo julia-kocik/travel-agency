@@ -155,6 +155,98 @@
       "tripName": "Pleasant travel in cool Turkey",
       "countryCode": "TUR",
       "id": 11
+    },
+    {
+      "car-rental": "suv",
+      "accommodation": "suite",
+      "features": [
+        "kitchen"
+      ],
+      "adults": 1,
+      "children": 0,
+      "name": "Julia",
+      "contact": "kjkjkjl",
+      "start-date": "2021-06-15T22:00:00.000Z",
+      "totalCost": "$52,581",
+      "tripId": "5cc1d10130dfa407e2e54e20",
+      "tripName": "Pleasant travel in cool Turkey",
+      "countryCode": "TUR",
+      "id": 12
+    },
+    {
+      "car-rental": "",
+      "accommodation": "hotel",
+      "features": [],
+      "adults": 1,
+      "children": 0,
+      "name": "",
+      "contact": "",
+      "start-date": "",
+      "totalCost": "$51,381",
+      "tripId": "5cc1d10130dfa407e2e54e20",
+      "tripName": "Pleasant travel in cool Turkey",
+      "countryCode": "TUR",
+      "id": 13
+    },
+    {
+      "car-rental": "",
+      "accommodation": "hotel",
+      "features": [],
+      "adults": 1,
+      "children": 0,
+      "name": "Julia",
+      "contact": "",
+      "start-date": "",
+      "totalCost": "$51,381",
+      "tripId": "5cc1d10130dfa407e2e54e20",
+      "tripName": "Pleasant travel in cool Turkey",
+      "countryCode": "TUR",
+      "id": 14
+    },
+    {
+      "car-rental": "",
+      "accommodation": "hotel",
+      "features": [],
+      "adults": 1,
+      "children": 0,
+      "name": "Julia",
+      "contact": "",
+      "start-date": "",
+      "totalCost": "$51,381",
+      "tripId": "5cc1d10130dfa407e2e54e20",
+      "tripName": "Pleasant travel in cool Turkey",
+      "countryCode": "TUR",
+      "id": 15
+    },
+    {
+      "car-rental": "",
+      "accommodation": "hotel",
+      "features": [],
+      "adults": 1,
+      "children": 0,
+      "name": "Julia",
+      "contact": "",
+      "start-date": "",
+      "totalCost": "$51,381",
+      "tripId": "5cc1d10130dfa407e2e54e20",
+      "tripName": "Pleasant travel in cool Turkey",
+      "countryCode": "TUR",
+      "id": 16
+    },
+    {
+      "car-rental": "",
+      "accommodation": "hotel",
+      "features": [],
+      "adults": 1,
+      "children": 0,
+      "name": "Julia",
+      "contact": "dd",
+      "start-date": "",
+      "totalCost": "$51,381",
+      "tripId": "5cc1d10130dfa407e2e54e20",
+      "tripName": "Pleasant travel in cool Turkey",
+      "countryCode": "TUR",
+      "id": 17
     }
   ]
 }
