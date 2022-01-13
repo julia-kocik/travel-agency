@@ -6,6 +6,10 @@
 
 .title {
   margin-bottom: ($base-size * 2);
+  background-color: black;
+  color: #fff;
+  border-radius: 6px;
+  padding: 6px 18px;
 }
 
 .input, .dropdown {
